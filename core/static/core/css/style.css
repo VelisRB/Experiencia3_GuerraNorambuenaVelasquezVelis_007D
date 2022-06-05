@@ -120,13 +120,32 @@ div .contenido .post h1{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    position: relative;
+
 }
+
 .tituloC{
     width: 100%;
-    text-align: center;
     font-weight: bold;
     margin: 30px;
     font-size: 30 px;
+    float: left;
+}
+
+.button-checkout{
+    border:none;
+    transition-duration: 0,4s;
+    border-radius: 8px;
+    padding: 15px 30px;
+    margin-top: -2cm;
+    margin-right: 0.5cm;
+    float:right;
+}
+
+.button-checkout:hover {
+    background-color: #2f93cd;
+    color:white
 }
 
 .box img{
@@ -137,10 +156,30 @@ div .contenido .post h1{
 
 .box{
     margin : 15px;
+    padding: 16px 16px;
+    box-shadow: 0 8px 16px 0 rgba(83, 165, 209, 0.078);
+}
+
+.box:hover{
+    box-shadow: 0 8px 16px 0 rgba(83, 165, 209, 0.669);
+    border-radius: 8px;
 }
 
 .box h5 {
     text-align: center;
+}
+
+.button-add {
+    border:none;
+    transition-duration: 0,4s;
+    border-radius: 8px;
+    padding: 8px 20px;
+    
+}
+
+.button-add:hover {
+    background-color: #2f93cd;
+    color:white
 }
 
 .imgc {
