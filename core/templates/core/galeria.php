@@ -10,6 +10,7 @@
     <script src="{%static 'core/js/galeria.js'%}"></script>
     <title>Catalogo | Fourty Free</title>
     <link rel="shortcur icon" href="{% static 'core/img/logo.png'%}" type="image/x-icon"/>
+    <script src="https://www.paypal.com/sdk/js?client-id=AZAjxmgI0P0sv5H6D1LYoxd8v8I7_DefRAL-37g8nA5aAGa44oWoTgl42XSRPH7Vx_huEEJJlFLD8QK_&currency=USD"></script>
   </head>
 
   <body>
@@ -61,7 +62,7 @@
 
   <div class="encabezadoC">
     <h3 class="tituloC"> Catalogo de Productos</h3>
-    <button id="checkout" class="button-checkout" onclick="pay()">pagar</button>
+    <button id="checkout" class="button-checkout" onclick="pay()">Carrito</button>
     </div>
     
     <div class="productoC"> 
@@ -122,6 +123,39 @@
         <center><button class="button-add" onclick="add('Correa Rosa',6.990)">Agregar</button></center>
       </div>
     </div>  
+    
+    <center><div id="paypal-button-container">
+      <script>
+        paypal.Buttons({
+          style:{
+            color:'blue',
+            shape:'pill',
+            label:'pay'
+        },
+        
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: 100
+                    }
+                }]
+            });
+        },
+
+        onApprove: function(data,actions) {
+            actions.order.capture().then(function(total){
+                console.log(total);
+            });
+        },
+
+        onCancel: function(data) {
+            alert("Pago Cancelado")
+            console.log(data);
+        }
+        }).render('#paypal-button-container');
+      </script>
+    </div><center>
 
     <!--Footer-->
     <footer class="bg-dark text-center text-white">
